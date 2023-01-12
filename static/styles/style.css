@@ -1,0 +1,371 @@
+/* NAVBAR STYLE  */
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav .logo {
+  margin-left: 10px; /* Add a margin to the left of the logo */
+  margin-right: 20px; /* Add a margin to the right of the logo */
+  padding-left: 10px; /* Add padding to the left side of the logo */
+  padding-right: 10px; /* Add padding to the right side of the logo */
+  float: right;
+  color: white;
+}
+
+.topnav .navigation {
+  float: left;
+
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+/* SIDEBAR   */
+
+/* TAB IN DOCUMENT HOME  */
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+/* TAB */
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+/* padding for content  */
+.web-content {
+  padding-top: 20px; /* Add padding to the top of the content block */
+  padding-bottom: 20px; /* Add padding to the bottom of the content block */
+  padding-left: 10px; /* Add padding to the left side of the content block */
+  padding-right: 10px; /* Add padding to the right side of the content block */
+}
+
+/* TABLES  */
+/* Style the tab content */
+
+
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+ }
+
+/* documemt form  FORM  */
+#upload-form {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+#progress-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+#cancel-box {
+  margin-bottom: 20px;
+}
+
+#cancel-button {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: #fff;
+}
+
+/* PROGRESS BAR */
+.not-visible {
+    display: none;
+}
+
+/* PROFILE FORM   */
+.profile-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.profile-form form {
+  text-align: center;
+}
+
+.profile-form ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-form li {
+  margin-bottom: 20px;
+}
+
+.profile-form input[type="submit"] {
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.profile-form a {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* PROFILE DATABASE + ITS TABLE   */
+
+.profile-table {
+  text-align: center;
+}
+
+table {
+  margin: 0 auto; /* This will center the table horizontally */
+}
+
+
+/* PROFILE VIEW  */
+.user-profile-view {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+}
+
+.user-profile-view h1 {
+  font-size: 2em;
+  margin: 20px 0;
+  color: #333;
+}
+
+.user-profile-view ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-profile-view li {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #666;
+}
+
+.user-profile-view li:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.user-view-same-departement p {
+  font-size: 1.2em;
+  margin: 100px 0 20px 0;
+  color: #333;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* REGISTER PAGE */
+.register-page {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 600px;
+  font-family: Arial, sans-serif;
+}
+
+.register-page h1 {
+  font-size: 2em;
+  margin: 20px 0;
+  color: #333;
+}
+
+.register-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-page input[type="submit"] {
+  margin: 20px 0;
+  padding: 10px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+}
+
+.register-page input[type="submit"]:hover {
+  background-color: #666;
+  cursor: pointer;
+}
+/* Password
+Helper */
+.password-confirmation-message  {
+  display:none;
+  vertical-align: middle;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.password-confirmation-message p {
+  vertical-align: middle;
+  padding: 0px 15px;
+  font-size: 15px;
+  text-aling: left;
+}
+
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+}
+
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+}
+
+/* Login Page  */
+
+    .login-page {
+        text-align: center;
+    }
+    .login-page h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .login-page form {
+        display: inline-block;
+        text-align: left;
+        max-width: 300px;
+    }
+    .login-page label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .login-page input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .login-page input[type="submit"] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .login-page input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .login-page  p {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .login-page a {
+        color: #0000EE;
+    }
+
+  /* main home page   */
+/* main home page */
+
+
+.main-home-page {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-home-page img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+}
+
+.main-home-page h2 {
+  color: black;
+  text-align: center;
+}

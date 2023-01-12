@@ -1,0 +1,107 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+<h1> DMS </h1>
+
+<div>
+  <a href="{% url 'documentRegistration' %}"> add document</a>
+
+</div>
+
+<div class="tab">
+  {% for departement in departements %}
+  <button class="tablinks" onclick="openCity(event, '{{departement}}')">{{departement}}</button>
+  {% endfor %}
+</div>
+
+{% for departement in departements %}
+
+<div id="{{departement}}" class="tabcontent">
+  <h3>{{departement}}</h3>
+    <form method="GET">
+
+        {% for field in filter.form %}
+    <div class="form-group">
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+            <small class="form-text text-muted">{{ field.help_text }}</small>
+        {% endif %}
+    </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+    <br>
+  <table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>No</th>
+    <th>Type</th>
+    <th>Ver</th>
+    <th>Owner</th>
+    <th>Valid Date</th>
+    <th>Expired Date </th>
+    <th>Valid Status </th>
+    <th>Distribution </th>
+    <th>Distribution Status  </th>
+    <th>File </th>
+    <th>Edit</th>
+    <th>Delete </th>
+    <th>Disribute </th>
+  </tr>
+  {% for document in filter.qs %}
+    {% if document.owner.position.departement == departement or departement in document.distribution.all and document.is_distributed  %}
+    <tr>
+      <td> {{document.document_name}} </td>
+      <td> {{document.document_number}} </td>
+      <td> {{document.type}} </td>
+      <td> {{document.document_version}} </td>
+      <td> {{document.owner.get_username}} </td>
+      <td> {{document.validity_date }} </td>
+      <td> {{document.expire_date }} </td>
+      <td> {{document.is_valid }} </td>
+      <td> {{document.distribution.all|join:", " }} </td>
+      <td> {{document.is_distributed }} </td>
+      <td>
+          {% if document.pdf_file %}
+          <a href="{% url 'viewPDF' document.id %}" target="_blank">
+            <img src="{% static 'icons/pdf.png' %}" alt="PDF icon" width="25" height="25">
+          </a>
+          {% else %}
+          <p> X </p>
+          {% endif %}
+      </td>
+      <td> <a href="{% url 'documentEdit' document.id %}">Edit</a></td>
+      <td>
+              <form method="POST" id="delete-form-{{document.id}}"  action="{% url 'deleteForm' document.id %}" >
+                {% csrf_token %}
+                <button type="button" class="btn btn-danger" onclick="confirmDelete({{document.id}})">Delete</button>
+              </form>
+
+      </td>
+      <td>
+
+              <form method="POST" id="update-distribution-{{document.id}}"  action="{% url 'updateDistribution' document.id %}" >
+                {% csrf_token %}
+                {% if document.is_distributed %}
+                <button type="button" class="btn btn-warning" onclick="confirmUpdate({{document.id}})"> Collect </button>
+                {% else %}
+                <button type="button" class="btn btn-success" onclick="confirmUpdate({{document.id}})"> Distribute </button>
+                {% endif %}
+              </form>
+
+
+      </td>
+
+    </tr>
+      {% endif %}
+    {% endfor %}
+</table>
+</div>
+
+{% endfor %}
+
+
+
+
+
+{% endblock content %}

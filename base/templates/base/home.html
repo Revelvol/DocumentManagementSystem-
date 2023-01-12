@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="main-home-page">
+
+
+    {% if request.user.is_authenticated %}
+        <img class="icon" src="{% static 'icons/arrow-top-left.png' %}" alt="icon" style="transform: rotate(-15deg);">
+        <br>
+        <h2> Click the App Above to Access Document </h2>
+    {% else %}
+        <img class="icon" src="{% static 'icons/cool.png' %}" alt="icon">
+        <br>
+        <h2>Welcome to This Random Website </h2>
+    {% endif %}
+
+
+</div>
+
+
+
+
+{% endblock content %}

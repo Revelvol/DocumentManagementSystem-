@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="profile-table">
+  <h1> Profile Database </h1>
+
+  <a href="{% url 'userRegister' %}"> Add User </a>
+  <br>
+  <table>
+    <tr>
+      <th>Number</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Position</th>
+      <th>Departement</th>
+      <th>Role</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    {% for user in users %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>
+          <a href="{% url 'viewUser' user.id %}">{{ user.name }}</a>
+        </td>
+        <td> {{user.email}}</td>
+        <td>{{user.position }}</td>
+        <td>{{user.position.departement.name }}</td>
+        <td> {% for group in user.groups.all%} {{group.name}} {% endfor %} </td>
+        <td>
+          <a href="{% url 'editUser' user.id %}"> Edit </a>
+        </td>
+        <td>
+          <form method="POST" id="delete-form-{{user.id}}"  action="{% url 'deleteUser' user.id %}" >
+                {% csrf_token %}
+            <button type="button" class="btn btn-danger" onclick="confirmDelete({{user.id}})"> delete </button>
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock content %}

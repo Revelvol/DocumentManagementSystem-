@@ -1,0 +1,11 @@
+{% if user.is_authenticated %}
+<div>
+  <div class="">
+    <ul class="sidebar-menu" data-widget="tree">
+   <li> <a href="{% url 'DMS' %}" onclick="clearLocalStorage();"> Document Management </a></li>
+      </ul>
+  </div>
+  </div>
+
+{%endif %}
+

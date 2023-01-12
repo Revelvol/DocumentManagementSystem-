@@ -1,0 +1,62 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="user-profile-view">
+<h1>  {{user.name }} Profile  </h1>
+    <div>
+    <ul>
+        <li> Name :  {{user.name}}  </li>
+        <li> Email:  {{user.email}}</li>
+        <li> Position: {{user.position}}</li>
+        <li> Departement : {{user.position.departement }}</li>
+        <li> Manager: {%if user.manager.name %} {{user.manager.name}} {%else%} Not assigned {%endif%}</li>
+    </ul>
+    </div>
+</div>
+<div class="user-view-same-departement">
+
+    <p>View people from {{request.user.position.departement}} departement : </p>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>email</th>
+        <th>Position</th>
+      </tr>
+      {% for orang in users %}
+        {% if request.user.position.departement == orang.position.departement %}
+          <tr>
+            <td><a href="{% url 'viewUser' orang.id  %}">{{orang.name}}</a></td>
+            <td>{{orang.email}}</td>
+            <td>{{orang.position}}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+    <p>View people from other departement : </p>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>email</th>
+        <th>Position</th>
+        <th>Departement</th>
+      </tr>
+      {% for orang in users %}
+        {% if request.user.position.departement != orang.position.departement %}
+          <tr>
+            <td><a href="{% url 'viewUser' orang.id  %}">{{orang.name}}</a></td>
+            <td>{{orang.email}}</td>
+            <td>{{orang.position}}</td>
+            <td>{{orang.position.departement.name}}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+
+
+</div>
+
+{% endblock content %}

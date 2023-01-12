@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="profile-table">
+  <h1> Departement Database </h1>
+
+  <a href="#"> Add Departement  </a>
+  <br>
+
+
+  {% for departement in departements %}
+  <h5> {{departement}} </h5>
+
+          <td>
+          <form method="POST" id="delete-form-{{departement.id}}"  action="#" >
+                {% csrf_token %}
+            <button type="button" class="btn btn-danger" onclick="confirmDelete({{position.id}})"> Delete Depertement </button>
+          </form>
+        </td>
+  <br>
+  <table>
+    <tr>
+      <th>Position </th>
+      <th>Description </th>
+      <th>Button</th>
+      <th>Button</th>
+    </tr>
+    {% for position in positions %}
+      {% if position.departement == departement %}
+      <tr>
+        <td> {{position.name}}</td>
+        <td> {{position.description}}</td>
+        <td>
+          <form method="POST" id="update-form-{{position.id}}"  action="#" >
+                {% csrf_token %}
+            <button type="button" class="btn btn-warning" onclick="confirmUpdate({{position.id}})"> Edit</button>
+          </form>
+        </td>
+        <td>
+          <form method="POST" id="delete-form-{{position.id}}"  action="#" >
+                {% csrf_token %}
+            <button type="button" class="btn btn-danger" onclick="confirmDelete({{position.id}})"> Delete </button>
+          </form>
+        </td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+  </table>
+  <br>
+  {% endfor %}
+</div>
+{% endblock content %}
